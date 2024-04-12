@@ -4,12 +4,12 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 set(EXAMPLE_CONFIG_FILES
-    "../config/vsomeip.json"
-    "../config/vsomeip-local.json"
-    "../config/vsomeip-tcp-client.json"
-    "../config/vsomeip-tcp-service.json"
-    "../config/vsomeip-udp-client.json"
-    "../config/vsomeip-udp-service.json"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../config/vsomeip.json"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../config/vsomeip-local.json"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../config/vsomeip-tcp-client.json"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../config/vsomeip-tcp-service.json"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../config/vsomeip-udp-client.json"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../config/vsomeip-udp-service.json"
 )
 
 # Examples
@@ -27,9 +27,14 @@ target_link_libraries(notify-sample ${VSOMEIP_NAME} ${Boost_LIBRARIES} ${DL_LIBR
 
 add_dependencies(examples request-sample response-sample subscribe-sample notify-sample)
 
-install (
+install(
     TARGETS request-sample response-sample subscribe-sample notify-sample
     RUNTIME DESTINATION "${INSTALL_BIN_DIR}" COMPONENT bin
 )
 
-###################################################################################################
+# ##################################################################################################
+foreach(config_file ${EXAMPLE_CONFIG_FILES})
+    make_directory("${CMAKE_BINARY_DIR}/config")
+    message("${CMAKE_COMMAND} -E copy_if_different ${config_file} ${CMAKE_BINARY_DIR}/config")
+    add_custom_command(TARGET request-sample POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${config_file} ${CMAKE_BINARY_DIR}/config)
+endforeach()

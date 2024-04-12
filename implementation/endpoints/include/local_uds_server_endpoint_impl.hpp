@@ -87,7 +87,7 @@ private:
     class connection: public std::enable_shared_from_this<connection> {
 
     public:
-        typedef std::shared_ptr<connection> ptr;
+        using ptr = std::shared_ptr<connection>;
 
         static ptr create(const std::shared_ptr<local_uds_server_endpoint_impl>& _server,
                           std::uint32_t _max_message_size,

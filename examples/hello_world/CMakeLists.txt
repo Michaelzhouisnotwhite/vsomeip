@@ -46,3 +46,9 @@ if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Android")
     add_executable (hello_world_client hello_world_client_main.cpp)
     target_link_libraries(hello_world_client vsomeip_hello_world_client ${VSOMEIP_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 endif()
+
+set(_CONFIG_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../config)
+
+message("===== _CONFIG_PATH: ${_CONFIG_PATH}")
+
+# add_custom_command(TARGET  )
