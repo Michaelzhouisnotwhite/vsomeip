@@ -661,6 +661,8 @@ add_subdirectory( tools )
 add_custom_target( examples )
 add_subdirectory( examples EXCLUDE_FROM_ALL )
 
+add_subdirectory(test_example EXCLUDE_FROM_ALL)
+
 ##############################################################################
 # add test directory
 enable_testing()

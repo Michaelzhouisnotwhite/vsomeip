@@ -177,3 +177,5 @@
 !build_qnx/*
 
 cmake-vscode-build-GCC
+*build*
+/installed
