@@ -175,3 +175,5 @@
 /test/network_tests/suspend_resume_tests/suspend_resume_test_service.json
 /Testing
 !build_qnx/*
+
+cmake-vscode-build-GCC

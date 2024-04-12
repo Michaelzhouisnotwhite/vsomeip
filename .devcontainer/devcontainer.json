@@ -1,0 +1,19 @@
+{
+    "name": "C++",
+
+    "build":{
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "llvm-vs-code-extensions.vscode-clangd",
+                "josetr.cmake-language-support-vscode",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools",
+                "ms-vscode.hexeditor"
+            ]
+        }
+
+    }
+}
