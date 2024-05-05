@@ -179,3 +179,4 @@
 cmake-vscode-build-GCC
 *build*
 /installed
+/vsomeip-installed
