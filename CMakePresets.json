@@ -5,7 +5,7 @@
             "name": "conf",
             "displayName": "common-config",
             "binaryDir": "cmake-build",
-            "installDir": "vsomeip-installed",
+            "installDir": "${sourceDir}/vsomeip-installed",
             "cacheVariables": {
                 "ENABLE_SIGNAL_HANDLING": "1",
                 "CMAKE_BUILD_TYPE": "Debug"
