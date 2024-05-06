@@ -16,4 +16,6 @@ set(include_dirs
 )
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 add_subdirectory(service-example)
+add_subdirectory(service-example2)
 add_subdirectory(client-example)
+add_subdirectory(client-example2)
