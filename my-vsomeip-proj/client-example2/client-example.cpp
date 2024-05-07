@@ -9,11 +9,11 @@
 #include <iostream>
 #include <vsomeip/vsomeip.hpp>
 std::shared_ptr<vsomeip::application> app;
-std::mutex mutex;
+std::mutex mutex_run;
 std::condition_variable condition;
 
 void run() {
-  std::unique_lock<std::mutex> its_lock(mutex);
+  std::unique_lock<std::mutex> its_lock(mutex_run);
   condition.wait(its_lock); // wait for avaliable
 
   std::shared_ptr<vsomeip::message> request;
