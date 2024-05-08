@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(my-vsome-ip-proj)
+project(my-vsomeip-proj)
 include(FetchContent)
 
 set(CMAKE_CXX_STANDARD 17)

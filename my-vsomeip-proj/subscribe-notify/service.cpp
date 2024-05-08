@@ -71,6 +71,8 @@ void Notify(const std::shared_ptr<vsomeip_v3::application>& app) {
   auto payload = vsomeip::runtime::get()->create_payload();
   payload->set_data(its_data, sizeof(its_data));
   while (true) {
+    std::cout << "notify client "
+              << "\n";
     app->notify(SERVICE_INS_IDS, SAMPLE_EVENT_ID, payload);
     std::this_thread::sleep_for(std::chrono::milliseconds(3000));
   }

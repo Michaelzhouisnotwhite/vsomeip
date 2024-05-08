@@ -1,14 +1,15 @@
 {
-    "version": 3,
+    "version": 4,
     "configurePresets": [
         {
             "name": "conf",
             "displayName": "common-config",
-            "binaryDir": "cmake-build",
+            "binaryDir": "${sourceDir}/cmake-build-presets",
             "installDir": "${sourceDir}/vsomeip-installed",
             "cacheVariables": {
                 "ENABLE_SIGNAL_HANDLING": "1",
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": true
             },
             "generator": "Ninja"
         }

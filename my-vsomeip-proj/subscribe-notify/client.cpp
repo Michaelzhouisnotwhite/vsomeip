@@ -99,7 +99,7 @@ int main() {
   app->request_service(SAMPLE_SERVICE_ID, SAMPLE_INSTANCE_ID);
   app->register_message_handler(SAMPLE_SERVICE_ID, SAMPLE_INSTANCE_ID,
                                 SAMPLE_METHOD_ID, OnMessage);
- 
+
   app->register_message_handler(SAMPLE_SERVICE_ID, SAMPLE_INSTANCE_ID,
                                 SAMPLE_EVENT_ID, OnEventMessage);
   std::thread(run).detach();
