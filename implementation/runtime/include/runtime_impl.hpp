@@ -20,12 +20,12 @@ public:
 
     static std::shared_ptr<runtime> get();
 
-    virtual ~runtime_impl();
+     ~runtime_impl() override;
 
     std::shared_ptr<application> create_application(
-            const std::string &_name);
+            const std::string &_name) override;
     std::shared_ptr<application> create_application(
-            const std::string &_name, const std::string &_path);
+            const std::string &_name, const std::string &_path) override;
 
     std::shared_ptr<message> create_message(bool _reliable) const;
     std::shared_ptr<message> create_request(bool _reliable) const;

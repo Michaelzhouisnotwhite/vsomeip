@@ -17,29 +17,32 @@
 
 class client_sample {
  public:
-  client_sample(bool _use_tcp)
+  explicit client_sample(bool _use_tcp)
       : app_(vsomeip::runtime::get()->create_application()),
         use_tcp_(_use_tcp) {}
 
   bool init() {
     if (!app_->init()) {
-      std::cerr << "Couldn't initialize application" << std::endl;
+      std::cerr << "Couldn't initialize application" << '\n';
       return false;
     }
     std::cout << "Client settings [protocol=" << (use_tcp_ ? "TCP" : "UDP")
-              << "]" << std::endl;
+              << "]" << '\n';
 
     app_->register_state_handler(
-        std::bind(&client_sample::on_state, this, std::placeholders::_1));
+        [this](auto &&PH1) { on_state(std::forward<decltype(PH1)>(PH1)); });
 
     app_->register_message_handler(
         vsomeip::ANY_SERVICE, SAMPLE_INSTANCE_ID, vsomeip::ANY_METHOD,
-        std::bind(&client_sample::on_message, this, std::placeholders::_1));
+        [this](auto &&PH1) { on_message(std::forward<decltype(PH1)>(PH1)); });
 
     app_->register_availability_handler(
         SAMPLE_SERVICE_ID, SAMPLE_INSTANCE_ID,
-        std::bind(&client_sample::on_availability, this, std::placeholders::_1,
-                  std::placeholders::_2, std::placeholders::_3));
+        [this](auto &&PH1, auto &&PH2, bool &&PH3) {
+          on_availability(std::forward<decltype(PH1)>(PH1),
+                          std::forward<decltype(PH2)>(PH2),
+                          std::forward<decltype(PH3)>(PH3));
+        });
 
     std::set<vsomeip::eventgroup_t> its_groups;
     its_groups.insert(SAMPLE_EVENTGROUP_ID);

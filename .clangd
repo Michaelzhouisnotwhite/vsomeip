@@ -38,8 +38,13 @@ Hover:
 CompileFlags:
   Add:
     - -Werror
-    - -Wpedantic
+    - -Wall
+    # - -Weverything
+    # - -Wpedantic
+    - -Wextra
     # - -Wconversion
+    # - -fno-common
+    - -Wno-inconsistent-missing-override
     - -fsanitize=address
     - -Wno-unused-variable
     - -Wno-infinite-recursion

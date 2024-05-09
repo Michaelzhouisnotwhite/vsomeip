@@ -180,3 +180,6 @@ cmake-vscode-build-GCC
 *build*
 /installed
 /vsomeip-installed
+
+/.idea
+/CMakeUserPresets.json
