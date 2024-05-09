@@ -7,7 +7,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_FLAGS "-g")
 
-find_package(vsomeip3 3.4.10 REQUIRED)
+option(USE_INSTALLED_VSOMIP "whether use find_package to find vsomip" ON)
+
+if(USE_INSTALLED_VSOMIP)
+    find_package(vsomeip3 3.4.10 REQUIRED)
+else()
+    
+endif()
+
 find_package(Boost 1.55 COMPONENTS system thread log REQUIRED)
 
 set(include_dirs

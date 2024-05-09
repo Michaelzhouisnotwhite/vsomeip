@@ -9,9 +9,14 @@
             "cacheVariables": {
                 "ENABLE_SIGNAL_HANDLING": "1",
                 "CMAKE_BUILD_TYPE": "Debug",
+                "USE_INSTALLED_VSOMIP":false,
                 "CMAKE_EXPORT_COMPILE_COMMANDS": true
             },
-            "generator": "Ninja"
+            "generator": "Ninja",
+            "environment": {
+                // "CXX": "clang++",
+                // "CC": "clang"
+            }
         }
     ]
 }

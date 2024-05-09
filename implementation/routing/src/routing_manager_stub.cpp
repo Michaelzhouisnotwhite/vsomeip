@@ -1608,8 +1608,10 @@ void routing_manager_stub::create_local_receiver() {
     local_receiver_ = std::static_pointer_cast<endpoint_manager_base>(
             host_->get_endpoint_manager())->create_local_server(shared_from_this());
 
-    if (local_receiver_)
-        local_receiver_->start();
+    if (local_receiver_) {
+        // accept loop
+      local_receiver_->start();
+    }
 }
 
 bool routing_manager_stub::send_ping(client_t _client) {
